@@ -1,0 +1,254 @@
+@import "../Theme";
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+@mixin transition {
+  transition: 1s all;
+}
+
+.sidebar {
+  z-index: 100;
+  height: 100%;
+  align-items: flex-start;
+  position: fixed;
+  top: 0%;
+  left: 0px;
+  padding: 10px 14px;
+  display: flex;
+  width: 60px;
+  flex-direction: column;
+  background-color: $Light_Theme_sidebar-color;
+
+  & {
+    transition: 0.7s all ease;
+  }
+
+  &_dark {
+    background-color: $Dark_Theme_sidebar-color;
+  }
+
+  &_opened {
+    width: 250px;
+  }
+  .Logo_Names {
+    margin-left: 9.1px;
+    .Logo {
+      height: 40px;
+      width: 41px;
+    }
+    .Logo_Name {
+      display: flex;
+      justify-content: start;
+      align-items: center;
+      position: absolute;
+      font-size: 18px;
+      font-weight: bold;
+      font-family: "Poppins", sans-serif;
+      top: 11px;
+      left: 75px;
+      margin: 0;
+      width: 200px;
+      height: 40px;
+      opacity: 0;
+      transition: 1s all;
+      color: $Light_Theme_text-color;
+      &_Opened {
+        opacity: 1;
+        transition: 1s ease all;
+      }
+      &_Dark {
+        color: $Dark_Theme_text-color;
+      }
+    }
+  }
+
+  .Theme_Switcher {
+    position: absolute;
+    bottom: 50px;
+    left: 7px;
+    right: 7px;
+    padding-left: 12px;
+    padding-right: 12px;
+    display: flex;
+    align-items: center;
+    height: 50px;
+    width: auto;
+    border-radius: 6px;
+    background-color: #f6f5ff;
+
+    transition: 1s all;
+    .changer {
+      width: 50px;
+      height: 50px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      &_opened {
+        margin-left: 17px;
+        transition: 0s all;
+      }
+    }
+    .Mode_Icons {
+      position: absolute;
+      margin-bottom: 0.5px;
+      left: 12px;
+      width: 60px;
+      height: 50px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      svg {
+        margin-top: 1px;
+      }
+    }
+    & {
+      transition: 1s ease all;
+    }
+    &_Dark {
+      background-color: #3a3b3c;
+    }
+    .sun,
+    .moon {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .moon {
+      height: 18px;
+      width: 18px;
+      background-color: $Dark_Theme_sidebar-color;
+      border-radius: 50%;
+      svg {
+        color: $Light_Theme_background-color;
+      }
+    }
+
+    .ModeSpan {
+      margin-top: -3.57px;
+      margin-left: 55px;
+      margin-right: 12px;
+      font-family: "Poppins", sans-serif;
+      width: 101px;
+      height: 22px;
+      font-size: 18px;
+      font-weight: bold;
+      display: none;
+      opacity: 0;
+      color: $Light_Theme_text-color;
+      & {
+        transition: 1s all;
+      }
+      &_Open {
+        display: flex;
+        opacity: 1;
+      }
+      &_Dark {
+        color: $Dark_Theme_text-color;
+      }
+    }
+  }
+}
+.sidebar .navlinks {
+  margin-top: 100px;
+  list-style-type: none;
+  position: absolute;
+  left: 14px;
+  right: 14px;
+  padding: 0;
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: auto;
+  & {
+    transition: 0.3s all ease;
+  }
+  .li {
+    margin-top: 5px;
+    border-radius: 6px;
+    height: 50px;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    &:hover {
+      background-color: $Light_Theme_secondary;
+      svg,
+      .Names {
+        color: $Light_Theme_background-color;
+      }
+      .Span {
+        opacity: 1;
+        display: flex;
+      }
+    }
+    &_dark {
+      &:hover {
+        background-color: $Dark_Theme_secondary;
+        svg,
+        .Names {
+          color: $Dark_Theme_text-color;
+        }
+        .Span {
+          opacity: 1;
+          display: flex;
+        }
+      }
+    }
+    .Span {
+      display: flex;
+      padding-left: 10px;
+      padding-right: 10px;
+      padding-top: 7px;
+      padding-bottom: 7px;
+      justify-content: center;
+      align-items: center;
+      border-radius: 6px;
+      position: absolute;
+      left: 85px;
+      width: auto;
+      height: auto;
+      transition: 1s ease all;
+      font-family: "Poppins", sans-serif;
+      font-weight: bold;
+      margin-top: 2.5px;
+      opacity: 0;
+      pointer-events: none;
+      background-color: $Light_Theme_sidebar-color;
+      color: $Light_Theme_text-color;
+      &_dark {
+        background-color: $Dark_Theme_sidebar-color;
+        color: $Dark_Theme_text-color;
+      }
+    }
+    a {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      text-decoration: none;
+      height: 100%;
+      width: 100%;
+
+      .Icons {
+        width: 60px;
+        height: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .Names_Closed {
+        opacity: 0;
+        display: none;
+      }
+      .Names {
+        transition: 1s ease all;
+        font-family: "Poppins", sans-serif;
+        font-weight: bold;
+        margin-top: 2.5px;
+      }
+      svg,
+      span {
+        color: $Light_Theme_text-color;
+        transition: 1s all;
+      }
+    }
+  }
+}
+//

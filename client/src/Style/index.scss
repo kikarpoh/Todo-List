@@ -1,0 +1,71 @@
+@import "./Theme";
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+.body {
+  margin: 0;
+  padding: 0;
+  position: fixed;
+  display: flex;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: $Light_Theme_background-color;
+  transition: 0.7s all;
+  &_dark {
+    background-color: $Dark_Theme_background-color;
+    transition: 0.7s all;
+  }
+}
+
+.section {
+  position: absolute;
+  top: 0;
+  left: 88px;
+  right: 0;
+  bottom: 0;
+  padding-left: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  & {
+    transition: 0.7s all ease;
+  }
+  &_open {
+    left: 273px;
+  }
+  &_dark {
+    color: $Dark_Theme_text_color;
+  }
+}
+
+.arrow {
+  width: 22px;
+  height: 22px;
+  left: -8px;
+  cursor: pointer;
+  position: absolute;
+  top: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background-color: $Light_Theme_secondary;
+  & {
+    transition: 0.715s ease all;
+  }
+  svg {
+    color: $Light_Theme_sidebar-color;
+  }
+
+  &_Dark {
+    background-color: $Dark_Theme_secondary;
+    svg {
+      color: $Dark_Theme_text-color;
+    }
+  }
+}
